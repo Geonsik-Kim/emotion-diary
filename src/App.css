@@ -29,5 +29,30 @@ body {
 
 .App {
     min-height: 100vh;
-    padding: 0 2px;
+    padding: 0 20px;
+}
+
+/* MyButton */
+.MyButton {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: "Nanum Pen Script", cursive;
+}
+
+.MyButton_default {
+    background-color: #ececec;
+    color: #000;
+}
+
+.MyButton_positive {
+    background-color: #64c964;
+    color: #fff;
+}
+
+.MyButton_negative {
+    background-color: #fd565f;
+    color: #fff;
 }
