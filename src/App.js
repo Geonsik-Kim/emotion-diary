@@ -6,6 +6,7 @@ import New from "./pages/New";
 import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
 import MyButton from "./components/MyButton";
+import MyHeader from "./components/MyHeader";
 
 function App() {
     return (
