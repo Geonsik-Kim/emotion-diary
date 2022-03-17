@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 
 const sortOptionList = [
@@ -15,6 +16,7 @@ const filterOptionList = [
 const ControlMenu = ({ value, onChange, optionList }) => {
     return (
         <select
+            className="ControlMenu"
             value={value}
             onChange={(e) => {
                 onChange(e.target.value);
@@ -30,6 +32,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
 };
 
 const DiaryList = ({ diaryList }) => {
+    const navigate = useNavigate();
     const [sortType, setSortType] = useState("latest");
     const [filter, setFilter] = useState("all");
 
@@ -60,18 +63,29 @@ const DiaryList = ({ diaryList }) => {
     };
 
     return (
-        <div>
-            <ControlMenu
-                value={sortType}
-                onChange={setSortType}
-                optionList={sortOptionList}
-            />
+        <div class="DiaryList">
+            <div className="menu_wrapper">
+                <div className="left_col">
+                    <ControlMenu
+                        value={sortType}
+                        onChange={setSortType}
+                        optionList={sortOptionList}
+                    />
 
-            <ControlMenu
-                value={filter}
-                onChange={setFilter}
-                optionList={filterOptionList}
-            />
+                    <ControlMenu
+                        value={filter}
+                        onChange={setFilter}
+                        optionList={filterOptionList}
+                    />
+                </div>
+                <div className="right_col">
+                    <MyButton
+                        type={"positive"}
+                        text={"새 일기 쓰기"}
+                        onClick={() => navigate("./new")}
+                    />
+                </div>
+            </div>
 
             {getProcessedDiaryList().map((it) => (
                 <div key={it.id}>
