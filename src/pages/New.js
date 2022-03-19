@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
 
+const getStringDate = (date) => {
+    return date.toISOString().slice(0, 10);
+};
+
 const New = () => {
+    const [date, setDate] = useState(getStringDate(new Date()));
     const navigate = useNavigate();
     return (
         <div>
@@ -15,6 +21,20 @@ const New = () => {
                     />
                 }
             />
+
+            <div>
+                <section>
+                    <h4>오늘은 언제인가요?</h4>
+                    <div className="input-box">
+                        <input
+                            type="date"
+                            className="input-date"
+                            onChange={(e) => setDate(e.target.value)}
+                            value={date}
+                        />
+                    </div>
+                </section>
+            </div>
         </div>
     );
 };
