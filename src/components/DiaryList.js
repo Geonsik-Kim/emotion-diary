@@ -64,7 +64,7 @@ const DiaryList = ({ diaryList }) => {
     };
 
     return (
-        <div class="DiaryList">
+        <div className="DiaryList">
             <div className="menu_wrapper">
                 <div className="left_col">
                     <ControlMenu
